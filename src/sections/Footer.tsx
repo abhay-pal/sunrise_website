@@ -87,7 +87,7 @@ export function Footer() {
                 </a>
                 <div className="flex items-center gap-2 text-white/50 text-sm">
                   <MapPin className="w-4 h-4" />
-                  Mumbai, Maharashtra, India
+                  D-417, SECTOR -2 PATWARI VILLAGE, GREATER NOIDA-201308
                 </div>
               </div>
 
