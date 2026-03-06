@@ -131,7 +131,7 @@ export function Contact() {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Mumbai, Maharashtra, India',
+      value: 'D-417, SECTOR -2 PATWARI VILLAGE, GREATER NOIDA-201308',
       href: '#',
     },
   ];
