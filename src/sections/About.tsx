@@ -21,7 +21,7 @@ const features = [
 ];
 
 const certifications = [
-  'ISO 9001:2015 Certified',
+  'GST: 09AURPM1904A2ZR',
   'Factory Trained Technicians',
   'Authorized Service Partner',
   '24/7 Emergency Response',
