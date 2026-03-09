@@ -20,4 +20,65 @@
     <loc>https://sunriseheavymachine.com/contact</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/reach-stacker-maintenance</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/forklift-repair</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/hydra-crane-service</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/hydraulic-system-repair</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/spare-parts</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://sunriseheavymachine.com/about-us</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/contact-us</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/amc-services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/breakdown-support</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/preventive-maintenance</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/industrial-equipment-maintenance</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/container-handling-equipment</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/gallery</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/faq</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/industries-we-serve</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
