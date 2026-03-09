@@ -1,14 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { WhatsAppPreForm } from './WhatsAppPreForm';
 
 const navItems = [
-  { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
   { label: 'Clients', href: '#clients' },
   { label: 'Contact', href: '#contact' },
+];
+
+const serviceLinks = [
+  { label: 'Reach Stacker Maintenance', href: '/reach-stacker-maintenance' },
+  { label: 'Forklift Repair', href: '/forklift-repair' },
+  { label: 'Hydra Crane Service', href: '/hydra-crane-service' },
+  { label: 'Hydraulic System Repair', href: '/hydraulic-system-repair' },
+  { label: 'Spare Parts', href: '/spare-parts' },
 ];
 
 const CONTACT_PHONE = '+91 97179 00209';
@@ -17,6 +24,9 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const servicesMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +35,28 @@ export function Navigation() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (servicesMenuRef.current && !servicesMenuRef.current.contains(event.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsServicesOpen(false);
+        setIsMobileServicesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, []);
 
   const scrollToSection = (href: string) => {
@@ -59,9 +91,9 @@ export function Navigation() {
               }}
             >
               <div className="relative h-14 md:h-16 w-auto">
-                <img 
-                  src="/images/logo-transparent.png" 
-                  alt="Sunrise Heavy Machine Services" 
+                <img
+                  src="/images/logo-transparent.png"
+                  alt="Sunrise Heavy Machine Services"
                   className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
                   style={{ maxWidth: '180px' }}
                 />
@@ -70,6 +102,49 @@ export function Navigation() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
+              <div
+                ref={servicesMenuRef}
+                className="relative"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <button
+                  onClick={() => setIsServicesOpen((prev) => !prev)}
+                  aria-haspopup="menu"
+                  aria-expanded={isServicesOpen}
+                  className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-300 relative group inline-flex items-center gap-1"
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-full transition-all duration-300" />
+                </button>
+
+                <AnimatePresence>
+                  {isServicesOpen && (
+                    <motion.div
+                      role="menu"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-3 w-72 rounded-xl glass border border-white/10 shadow-2xl p-2"
+                    >
+                      {serviceLinks.map((service) => (
+                        <a
+                          key={service.href}
+                          href={service.href}
+                          role="menuitem"
+                          className="block px-4 py-2.5 rounded-lg text-sm text-white/80 hover:text-white hover:bg-amber-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 transition-colors"
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          {service.label}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -143,19 +218,61 @@ export function Navigation() {
               className="absolute right-0 top-0 h-full w-72 glass border-l border-white/10 p-6 pt-28"
             >
               <div className="flex flex-col gap-4">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 }}
+                  className="border-b border-white/10 pb-2"
+                >
+                  <button
+                    onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                    aria-haspopup="menu"
+                    aria-expanded={isMobileServicesOpen}
+                    className="w-full text-left text-white/80 hover:text-white text-lg font-medium py-3 transition-colors inline-flex items-center justify-between"
+                  >
+                    Services
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {isMobileServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-2 pb-2 flex flex-col">
+                          {serviceLinks.map((service) => (
+                            <a
+                              key={service.href}
+                              href={service.href}
+                              role="menuitem"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="text-white/70 hover:text-amber-400 text-sm py-2 transition-colors"
+                            >
+                              {service.label}
+                            </a>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.label}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.1 + 0.1 }}
                     onClick={() => scrollToSection(item.href)}
                     className="text-left text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/10 transition-colors"
                   >
                     {item.label}
                   </motion.button>
                 ))}
-                
+
                 {/* WhatsApp Button Mobile */}
                 <motion.button
                   initial={{ opacity: 0, x: 20 }}
@@ -170,7 +287,7 @@ export function Navigation() {
                   <MessageCircle className="w-5 h-5" />
                   Chat on WhatsApp
                 </motion.button>
-                
+
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}

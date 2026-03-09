@@ -20,4 +20,24 @@
     <loc>https://sunriseheavymachine.com/contact</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/reach-stacker-maintenance</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/forklift-repair</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/hydra-crane-service</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/hydraulic-system-repair</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sunriseheavymachine.com/spare-parts</loc>
+    <priority>0.9</priority>
+  </url>
 </urlset>
