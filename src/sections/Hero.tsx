@@ -158,6 +158,10 @@ export function Hero() {
             <span className="text-gradient">Maintaining Trust.</span>
           </motion.h1>
 
+          <h2 className="sr-only">
+            Reach Stacker, Forklift and Heavy Equipment Service in India
+          </h2>
+
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -168,6 +172,14 @@ export function Hero() {
             Complete maintenance, repair, and spare parts solutions for reach
             stackers, forklifts, hydra cranes, and hydraulic systems.
           </motion.p>
+
+          <p className="sr-only">
+            Sunrise Heavy Machine Service is a trusted provider of Reach Stacker,
+            Forklift and Hydra Crane maintenance services in India. We specialize
+            in heavy equipment repair, preventive maintenance, spare parts supply
+            and container handling machinery support for industrial and logistics
+            operations.
+          </p>
 
           {/* CTA Buttons */}
           <motion.div
