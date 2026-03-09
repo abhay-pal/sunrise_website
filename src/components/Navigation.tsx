@@ -4,6 +4,7 @@ import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { WhatsAppPreForm } from './WhatsAppPreForm';
 
+
 const primaryLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about-us' },
@@ -24,6 +25,20 @@ const serviceLinks = [
   { label: 'Preventive Maintenance', href: '/preventive-maintenance' },
   { label: 'Industrial Equipment Maintenance', href: '/industrial-equipment-maintenance' },
   { label: 'Container Handling Equipment', href: '/container-handling-equipment' },
+
+const navItems = [
+  { label: 'About', href: '#about' },
+  { label: 'Clients', href: '#clients' },
+  { label: 'Contact', href: '#contact' },
+
+];
+
+const serviceLinks = [
+  { label: 'Reach Stacker Maintenance', href: '/reach-stacker-maintenance' },
+  { label: 'Forklift Repair', href: '/forklift-repair' },
+  { label: 'Hydra Crane Service', href: '/hydra-crane-service' },
+  { label: 'Hydraulic System Repair', href: '/hydraulic-system-repair' },
+  { label: 'Spare Parts', href: '/spare-parts' },
 ];
 
 const CONTACT_PHONE = '+91 97179 00209';
@@ -64,6 +79,15 @@ export function Navigation() {
     };
   }, []);
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+
   return (
     <>
       <motion.header
@@ -88,6 +112,7 @@ export function Navigation() {
             </a>
 
             <div className="hidden md:flex items-center gap-8">
+
               <a href="/" className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-300 relative group">
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-full transition-all duration-300" />
@@ -99,6 +124,45 @@ export function Navigation() {
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
+                <button
+                  onClick={() => setIsServicesOpen((prev) => !prev)}
+                  aria-haspopup="menu"
+                  aria-expanded={isServicesOpen}
+                  className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-300 relative group inline-flex items-center gap-1"
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-full transition-all duration-300" />
+                </button>
+
+                <AnimatePresence>
+                  {isServicesOpen && (
+                    <motion.div
+                      role="menu"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-3 w-72 rounded-xl glass border border-white/10 shadow-2xl p-2"
+                    >
+                      {serviceLinks.map((service) => (
+                        <a
+                          key={service.href}
+                          href={service.href}
+                          role="menuitem"
+                          className="block px-4 py-2.5 rounded-lg text-sm text-white/80 hover:text-white hover:bg-amber-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 transition-colors"
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          {service.label}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {navItems.map((item) => (
+
                 <button
                   onClick={() => setIsServicesOpen((prev) => !prev)}
                   aria-haspopup="menu"
@@ -198,8 +262,17 @@ export function Navigation() {
               className="absolute right-0 top-0 h-full w-72 glass border-l border-white/10 p-6 pt-28"
             >
               <div className="flex flex-col gap-4">
+
                 <a href="/" className="text-left text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/10 transition-colors">Home</a>
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 }} className="border-b border-white/10 pb-2">
+
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 }}
+                  className="border-b border-white/10 pb-2"
+                >
+
                   <button
                     onClick={() => setIsMobileServicesOpen((prev) => !prev)}
                     aria-haspopup="menu"
@@ -211,10 +284,29 @@ export function Navigation() {
                   </button>
                   <AnimatePresence>
                     {isMobileServicesOpen && (
+
                       <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
                         <div className="pl-2 pb-2 flex flex-col">
                           {serviceLinks.map((service) => (
                             <a key={service.href} href={service.href} role="menuitem" onClick={() => setIsMobileMenuOpen(false)} className="text-white/70 hover:text-amber-400 text-sm py-2 transition-colors">
+
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-2 pb-2 flex flex-col">
+                          {serviceLinks.map((service) => (
+                            <a
+                              key={service.href}
+                              href={service.href}
+                              role="menuitem"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="text-white/70 hover:text-amber-400 text-sm py-2 transition-colors"
+                            >
+
                               {service.label}
                             </a>
                           ))}
@@ -224,19 +316,31 @@ export function Navigation() {
                   </AnimatePresence>
                 </motion.div>
 
+
                 {primaryLinks.slice(1).map((item, index) => (
                   <motion.a
+
+                {navItems.map((item, index) => (
+                  <motion.button
+
                     key={item.label}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 + 0.1 }}
+
                     href={item.href}
+
+                    onClick={() => scrollToSection(item.href)}
+
                     className="text-left text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/10 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
                   </motion.a>
                 ))}
+
+
+                {/* WhatsApp Button Mobile */}
 
                 <motion.button
                   initial={{ opacity: 0, x: 20 }}
@@ -258,6 +362,19 @@ export function Navigation() {
                       Request a Quote
                     </Button>
                   </a>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="pt-4"
+                >
+                  <Button
+                    onClick={() => scrollToSection('#contact')}
+                    className="w-full bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium py-6"
+                  >
+                    Request a Quote
+                  </Button>
+
                 </motion.div>
               </div>
             </motion.div>

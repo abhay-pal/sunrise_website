@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/sections/Footer';
 
+
 type Section = {
   title: string;
   points?: string[];
@@ -10,6 +11,9 @@ type Section = {
 };
 
 type SitePage = {
+
+type ServiceConfig = {
+
   path: string;
   title: string;
   metaTitle: string;
@@ -17,6 +21,7 @@ type SitePage = {
   heroDescription: string;
   image: string;
   imageAlt: string;
+
   overview: string;
   sections: Section[];
   links: { label: string; href: string }[];
@@ -32,10 +37,28 @@ const orgSchema = {
 };
 
 const pages: SitePage[] = [
+
+  servicesOffered: string[];
+  industriesServed: string[];
+  whyChooseUs: string[];
+  coverage: string;
+  links: { label: string; href: string }[];
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Sunrise Heavy Machine Service',
+  url: 'https://sunriseheavymachine.com',
+};
+
+const pages: ServiceConfig[] = [
+
   {
     path: '/reach-stacker-maintenance',
     title: 'Reach Stacker Maintenance Services',
     metaTitle: 'Reach Stacker Maintenance Service | Sunrise Heavy Machine',
+
     metaDescription: 'Professional reach stacker maintenance, repair and spare parts solutions for container handling equipment.',
     heroDescription: 'Expert reach stacker maintenance and repair solutions for ports, container yards, and logistics companies.',
     image: '/images/vector-reach-stacker.png',
@@ -52,11 +75,33 @@ const pages: SitePage[] = [
       { label: 'Container Handling Equipment', href: '/container-handling-equipment' },
     ],
     schemaType: 'Service',
+
+    metaDescription:
+      'Professional reach stacker maintenance, repair and spare parts solutions for container handling equipment.',
+    heroDescription:
+      'Expert reach stacker maintenance and repair solutions for ports, container yards, and logistics companies.',
+    image: '/images/vector-reach-stacker.png',
+    imageAlt: 'Vector illustration of reach stacker maintenance service',
+    servicesOffered: [
+      'Preventive maintenance programs',
+      'Engine, transmission and hydraulic diagnostics',
+      'Emergency breakdown troubleshooting',
+      'Container handler performance checks',
+    ],
+    industriesServed: ['Ports', 'Container Yards', 'Logistics Parks', 'Freight Terminals'],
+    whyChooseUs: ['Experienced field engineers', 'Fast response support', 'OEM-grade service process'],
+    coverage: 'Service support available across major industrial and logistics hubs in India.',
+    links: [
+      { label: 'Forklift Repair Service', href: '/forklift-repair' },
+      { label: 'Hydra Crane Service', href: '/hydra-crane-service' },
+    ],
+
   },
   {
     path: '/forklift-repair',
     title: 'Forklift Repair Services',
     metaTitle: 'Forklift Repair Service | Sunrise Heavy Machine',
+
     metaDescription: 'Reliable forklift repair, maintenance and spare parts support for warehousing and industrial operations.',
     heroDescription: 'Reliable forklift repair and maintenance services to keep warehouse and plant operations running smoothly.',
     image: '/images/vector-forklift.png',
@@ -73,11 +118,33 @@ const pages: SitePage[] = [
       { label: 'Spare Parts', href: '/spare-parts' },
     ],
     schemaType: 'Service',
+
+    metaDescription:
+      'Reliable forklift repair, maintenance and parts support for industrial warehouses and logistics operations.',
+    heroDescription:
+      'Reliable forklift repair and maintenance services to keep warehouse and plant operations running smoothly.',
+    image: '/images/vector-forklift.png',
+    imageAlt: 'Vector illustration of forklift repair service',
+    servicesOffered: [
+      'Forklift periodic maintenance',
+      'Brake, steering and mast repairs',
+      'Battery and electrical system diagnostics',
+      'Load handling performance optimization',
+    ],
+    industriesServed: ['Warehousing', 'Manufacturing', '3PL Logistics', 'Distribution Centers'],
+    whyChooseUs: ['Trained repair team', 'Scheduled preventive plans', 'Spare parts supply support'],
+    coverage: 'Forklift repair and service assistance for industrial facilities throughout India.',
+    links: [
+      { label: 'Hydraulic System Repair', href: '/hydraulic-system-repair' },
+      { label: 'Spare Parts Supply', href: '/spare-parts' },
+    ],
+
   },
   {
     path: '/hydra-crane-service',
     title: 'Hydra Crane Service',
     metaTitle: 'Hydra Crane Service & Repair | Sunrise Heavy Machine',
+
     metaDescription: 'Hydra crane maintenance, inspection and repair support for safe heavy lifting operations.',
     heroDescription: 'Specialized hydra crane maintenance and repair for safe, efficient lifting operations.',
     image: '/images/vector-crane.png',
@@ -94,6 +161,27 @@ const pages: SitePage[] = [
       { label: 'Preventive Maintenance', href: '/preventive-maintenance' },
     ],
     schemaType: 'Service',
+
+    metaDescription:
+      'Hydra crane inspection, repair and maintenance services for heavy lifting equipment in India.',
+    heroDescription:
+      'Specialized hydra crane maintenance and repair for safe, efficient lifting operations.',
+    image: '/images/vector-crane.png',
+    imageAlt: 'Vector illustration of hydra crane service',
+    servicesOffered: [
+      'Boom and hoist system servicing',
+      'Hydraulic line and seal inspection',
+      'Load safety and stability checks',
+      'On-site breakdown support',
+    ],
+    industriesServed: ['Construction', 'Industrial Plants', 'Infrastructure Projects', 'Heavy Logistics'],
+    whyChooseUs: ['Safety-focused processes', 'Field-ready technicians', 'Fast maintenance turnaround'],
+    coverage: 'Hydra crane support available for project sites and industrial locations across India.',
+    links: [
+      { label: 'Reach Stacker Maintenance', href: '/reach-stacker-maintenance' },
+      { label: 'Hydraulic System Repair', href: '/hydraulic-system-repair' },
+    ],
+
   },
   {
     path: '/hydraulic-system-repair',
@@ -115,6 +203,27 @@ const pages: SitePage[] = [
       { label: 'AMC Services', href: '/amc-services' },
     ],
     schemaType: 'Service',
+
+    metaDescription:
+      'Hydraulic system diagnostics, repair and preventive maintenance for heavy equipment and machinery.',
+    heroDescription:
+      'End-to-end hydraulic system troubleshooting, repair, and preventive maintenance support.',
+    image: '/images/vector-hydraulic.png',
+    imageAlt: 'Vector illustration of hydraulic system repair',
+    servicesOffered: [
+      'Hydraulic pump and valve servicing',
+      'Pressure testing and leak detection',
+      'Hose, seal and cylinder replacement',
+      'Preventive hydraulic maintenance plans',
+    ],
+    industriesServed: ['Heavy Machinery', 'Ports', 'Manufacturing Plants', 'Material Handling'],
+    whyChooseUs: ['Precise diagnostics', 'Quality replacement parts', 'Preventive maintenance expertise'],
+    coverage: 'Hydraulic repair support for heavy equipment users across India.',
+    links: [
+      { label: 'Spare Parts Supply', href: '/spare-parts' },
+      { label: 'Forklift Repair Service', href: '/forklift-repair' },
+    ],
+
   },
   {
     path: '/spare-parts',
@@ -350,6 +459,26 @@ const pages: SitePage[] = [
       { label: 'Contact Us', href: '/contact-us' },
     ],
     schemaType: 'WebPage',
+
+    metaDescription:
+      'Supply of reliable spare parts for reach stackers, forklifts, hydra cranes and hydraulic systems.',
+    heroDescription:
+      'Trusted spare parts supply for heavy equipment maintenance, repair and uptime improvement.',
+    image: '/images/vector-parts.png',
+    imageAlt: 'Vector illustration of heavy equipment spare parts',
+    servicesOffered: [
+      'Reach stacker spare parts',
+      'Forklift service spares',
+      'Hydra crane components',
+      'Hydraulic seals, hoses and kits',
+    ],
+    industriesServed: ['Container Handling', 'Warehousing', 'Industrial Operations', 'Logistics'],
+    whyChooseUs: ['Consistent part quality', 'Fast sourcing support', 'Service-backed recommendations'],
+    coverage: 'Parts supply and dispatch support for clients across India.',
+    links: [
+      { label: 'Reach Stacker Maintenance', href: '/reach-stacker-maintenance' },
+      { label: 'Forklift Repair Service', href: '/forklift-repair' },
+    ],
   },
 ];
 
@@ -408,6 +537,42 @@ function setSchema(page: SitePage) {
 }
 
 function SitePageView({ page }: { page: SitePage }) {
+
+function setSchema(page: ServiceConfig) {
+  const scriptId = 'service-schema';
+  const existing = document.getElementById(scriptId);
+  if (existing) existing.remove();
+
+  const script = document.createElement('script');
+  script.id = scriptId;
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(
+    {
+      '@context': 'https://schema.org',
+      '@graph': [
+        orgSchema,
+        {
+          '@type': 'Service',
+          name: page.title,
+          serviceType: page.title,
+          provider: {
+            '@type': 'Organization',
+            name: 'Sunrise Heavy Machine Service',
+            url: 'https://sunriseheavymachine.com',
+          },
+          areaServed: 'India',
+          description: page.metaDescription,
+          url: `https://sunriseheavymachine.com${page.path}`,
+        },
+      ],
+    },
+    null,
+    2,
+  );
+  document.head.appendChild(script);
+}
+
+function ServicePage({ page }: { page: ServiceConfig }) {
   useEffect(() => {
     document.title = page.metaTitle;
     setMeta('description', page.metaDescription);
@@ -432,7 +597,11 @@ function SitePageView({ page }: { page: SitePage }) {
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight mb-5">{page.title}</h1>
               <p className="text-lg text-white/70 leading-relaxed mb-8">{page.heroDescription}</p>
+
               <a href="/contact-us">
+
+              <a href="/contact">
+
                 <Button className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-8 py-6 text-lg shadow-glow">
                   Request a Quote
                 </Button>
@@ -448,6 +617,7 @@ function SitePageView({ page }: { page: SitePage }) {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
             <div className="glass rounded-xl p-6 border border-white/10">
               <h2 className="text-2xl font-display font-semibold mb-4">Overview</h2>
+
               <p className="text-white/70">{page.overview}</p>
             </div>
 
@@ -467,6 +637,40 @@ function SitePageView({ page }: { page: SitePage }) {
 
             <div className="glass rounded-xl p-6 border border-white/10 md:col-span-2">
               <h2 className="text-2xl font-display font-semibold mb-4">Explore Related Pages</h2>
+
+              <p className="text-white/70">{page.metaDescription}</p>
+            </div>
+            <div className="glass rounded-xl p-6 border border-white/10">
+              <h2 className="text-2xl font-display font-semibold mb-4">Services Offered</h2>
+              <ul className="space-y-2 text-white/70 list-disc list-inside">
+                {page.servicesOffered.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="glass rounded-xl p-6 border border-white/10">
+              <h2 className="text-2xl font-display font-semibold mb-4">Industries Served</h2>
+              <ul className="space-y-2 text-white/70 list-disc list-inside">
+                {page.industriesServed.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="glass rounded-xl p-6 border border-white/10">
+              <h2 className="text-2xl font-display font-semibold mb-4">Why Choose Us</h2>
+              <ul className="space-y-2 text-white/70 list-disc list-inside">
+                {page.whyChooseUs.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="glass rounded-xl p-6 border border-white/10 md:col-span-2">
+              <h2 className="text-2xl font-display font-semibold mb-4">Service Coverage</h2>
+              <p className="text-white/70">{page.coverage}</p>
+            </div>
+            <div className="glass rounded-xl p-6 border border-white/10 md:col-span-2">
+              <h2 className="text-2xl font-display font-semibold mb-4">Explore Related Services</h2>
+
               <div className="flex flex-wrap gap-3 mb-4">
                 {page.links.map((link) => (
                   <a key={link.href} href={link.href} className="text-amber-400 hover:text-amber-300 underline underline-offset-4">
@@ -475,6 +679,7 @@ function SitePageView({ page }: { page: SitePage }) {
                 ))}
               </div>
               <h2 className="text-2xl font-display font-semibold mb-4">Call to Action</h2>
+
               <p className="text-white/70 mb-4">Need fast and reliable heavy equipment support? Contact Sunrise Heavy Machine Service today.</p>
               <div className="flex flex-wrap gap-3">
                 <a href="/contact-us">
@@ -491,6 +696,14 @@ function SitePageView({ page }: { page: SitePage }) {
                   Chat on WhatsApp
                 </a>
               </div>
+
+              <p className="text-white/70 mb-4">Need fast and reliable heavy equipment service support? Contact Sunrise Heavy Machine Service today.</p>
+              <a href="/#contact">
+                <Button className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-7">
+                  Contact Service Team
+                </Button>
+              </a>
+
             </div>
           </div>
         </section>
@@ -503,5 +716,11 @@ function SitePageView({ page }: { page: SitePage }) {
 export function renderServiceRoute(pathname: string) {
   const page = pages.find((item) => item.path === pathname);
   if (!page) return null;
+
   return <SitePageView page={page} />;
 }
+
+  return <ServicePage page={page} />;
+}
+
+
