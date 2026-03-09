@@ -173,8 +173,69 @@ const pages: SitePage[] = [
     heroDescription: 'Trusted heavy equipment maintenance partner for industrial and logistics businesses across India.',
     image: '/images/about-workshop.jpg',
     imageAlt: 'Sunrise heavy equipment workshop and field support',
-    overview: 'We provide dependable heavy equipment service solutions focused on uptime and safety.',
-    sections: [{ title: 'Mission & Values', points: ['Safety-first execution', 'Transparent communication', 'Long-term customer support'] }],
+    overview:
+      'Sunrise Heavy Machine Service is a trusted heavy equipment maintenance company supporting logistics, warehousing, port, and industrial operations across India. Our team combines workshop capability with responsive on-site support to keep critical equipment performing safely in demanding environments.',
+    sections: [
+      {
+        title: 'Who We Are',
+        text:
+          'We are a service-focused technical partner for businesses that depend on reach stackers, forklifts, hydra cranes, and hydraulic-powered machinery. From planned servicing to urgent breakdown response, our goal is to deliver dependable support that protects uptime and operational continuity.',
+      },
+      {
+        title: 'Our Experience & Field Expertise',
+        points: [
+          'Hands-on support for container handling equipment and warehouse fleets',
+          'Hydraulic system troubleshooting, leak rectification, and pressure performance checks',
+          'Mechanical, electrical, and safety inspection support for heavy machines',
+          'Integrated workshop repairs with field diagnostics and site restoration support',
+        ],
+      },
+      {
+        title: 'What Makes Sunrise Different',
+        points: [
+          'Fast-response service mindset for uptime-critical operations',
+          'Clear diagnosis and practical recommendations before major component replacement',
+          'Preventive maintenance planning to reduce repetitive failures',
+          'Service + spare parts support from one coordinated team',
+        ],
+      },
+      {
+        title: 'Industries & Equipment We Support',
+        points: [
+          'Ports, terminals, and container yards handling high-volume movement',
+          'Warehousing and logistics hubs running daily forklift operations',
+          'Construction and infrastructure sites using hydra cranes and support equipment',
+          'Industrial plants requiring hydraulic reliability and safe machine performance',
+        ],
+      },
+      {
+        title: 'Mission, Vision & Core Values',
+        points: [
+          'Mission: Deliver reliable heavy equipment maintenance services with safety and accountability.',
+          'Vision: Be the preferred industrial equipment service partner for uptime-focused businesses in India.',
+          'Values: Technical integrity, responsive support, transparent communication, and long-term service commitment.',
+        ],
+      },
+      {
+        title: 'Why Clients Trust Us',
+        points: [
+          'Consistent service quality aligned with real site conditions',
+          'Structured inspections and maintenance records for better planning',
+          'Respect for safety processes and operating timelines',
+          'Professional coordination with operations, maintenance, and fleet teams',
+        ],
+      },
+      {
+        title: 'Service Commitment, Safety & Uptime Philosophy',
+        text:
+          'Our approach is built on preventive maintenance, accurate fault finding, and disciplined execution. We focus on reducing unplanned downtime, extending equipment life, and supporting safer machine operation through regular inspection, timely intervention, and responsible service practices.',
+      },
+      {
+        title: 'Let’s Support Your Equipment Performance',
+        text:
+          'If your business depends on heavy equipment reliability, Sunrise Heavy Machine Service is ready to support your team with routine maintenance, emergency breakdown assistance, and dependable spare parts coordination.',
+      },
+    ],
     links: [{ label: 'Contact Us', href: '/contact-us' }],
     schemaType: 'WebPage',
   },
@@ -186,8 +247,62 @@ const pages: SitePage[] = [
     heroDescription: 'Connect with our team for service inquiries, urgent support, and maintenance planning.',
     image: '/images/operations-bg.jpg',
     imageAlt: 'Industrial operations contact and support',
-    overview: 'Reach out for maintenance plans, emergency support, and spare parts requirements.',
-    sections: [{ title: 'Contact Details', points: ['Phone: +91 97179 00209', 'Email: Sunrise7480@rediffmail.com', 'Location: Greater Noida, India'] }],
+    overview:
+      'Connect with Sunrise Heavy Machine Service for heavy equipment maintenance services, hydraulic troubleshooting, forklift and reach stacker support, spare parts assistance, and breakdown response planning.',
+    sections: [
+      {
+        title: 'Service Inquiry Support',
+        text:
+          'Our team supports new and existing clients with technical discussions, maintenance planning, inspection schedules, and service coordination for industrial equipment in demanding operating environments.',
+      },
+      {
+        title: 'Emergency Breakdown Note',
+        text:
+          'If your reach stacker, forklift, hydra crane, or hydraulic system has an urgent issue, call or WhatsApp us with machine details, current symptoms, and location so we can prioritize support quickly.',
+      },
+      {
+        title: 'Contact Details',
+        points: ['Phone: +91 97179 00209', 'WhatsApp: +91 97179 00209', 'Email: Sunrise7480@rediffmail.com', 'Location: Greater Noida, India'],
+      },
+      {
+        title: 'Business & Service Hours',
+        points: [
+          'Monday to Saturday: Service coordination and workshop support',
+          'On-site visits: Scheduled based on location, urgency, and machine condition',
+          'Urgent cases: Prioritized response for breakdown-critical situations',
+        ],
+      },
+      {
+        title: 'Request a Quote Guidance',
+        points: [
+          'Share machine type, model, and issue summary',
+          'Mention site location and preferred service timing',
+          'Specify whether you need one-time repair, preventive maintenance, or AMC support',
+          'Add spare parts requirements if known to speed up planning',
+        ],
+      },
+      {
+        title: 'Types of Inquiries We Handle',
+        points: [
+          'Reach stacker maintenance and inspection support',
+          'Forklift repair services and periodic maintenance',
+          'Hydra crane maintenance and operational checks',
+          'Hydraulic system troubleshooting and component replacement',
+          'Spare parts sourcing and fitment planning',
+          'Annual maintenance contracts and preventive service schedules',
+        ],
+      },
+      {
+        title: 'Why Contact Sunrise Heavy Machine Service',
+        text:
+          'We combine technical experience, practical field response, and professional communication to help logistics and industrial teams reduce downtime and maintain safe equipment performance.',
+      },
+      {
+        title: 'Talk to Our Team Today',
+        text:
+          'Whether you need immediate support or long-term maintenance planning, our team is ready to help you keep operations moving with dependable heavy equipment service.',
+      },
+    ],
     links: [{ label: 'AMC Services', href: '/amc-services' }],
     schemaType: 'WebPage',
   },
@@ -199,8 +314,72 @@ const pages: SitePage[] = [
     heroDescription: 'A visual showcase of service capabilities and industrial maintenance work.',
     image: '/images/team.jpg',
     imageAlt: 'Gallery of heavy equipment service visuals',
-    overview: 'Representative visuals from field service, workshop operations, and maintenance support.',
-    sections: [{ title: 'Project Highlights', points: ['Industrial maintenance projects', 'Breakdown response snapshots', 'Workshop support'] }],
+    overview:
+      'This gallery highlights the type of heavy equipment maintenance and industrial service work delivered by our team across workshops, logistics yards, warehouses, and field locations.',
+    sections: [
+      {
+        title: 'Project Highlights',
+        points: [
+          'Reach stacker preventive maintenance and operational readiness checks',
+          'Forklift restoration work for safer and smoother warehouse performance',
+          'Hydra crane service activities focused on lifting reliability and safety',
+        ],
+      },
+      {
+        title: 'Field Service Snapshots',
+        points: [
+          'On-site diagnostics for hydraulic pressure loss and leakage conditions',
+          'Emergency breakdown attendance at logistics and container handling locations',
+          'Inspection-based interventions to reduce repeat failures in active fleets',
+        ],
+      },
+      {
+        title: 'Workshop Maintenance Highlights',
+        points: [
+          'Component disassembly, cleaning, and fitment checks under controlled workshop conditions',
+          'Seal kits, hose lines, and hydraulic sub-assembly replacement work',
+          'Post-service testing to confirm machine readiness before handover',
+        ],
+      },
+      {
+        title: 'Spare Parts & Component Support',
+        points: [
+          'Critical replacement parts coordinated to reduce downtime windows',
+          'Service-aligned part recommendations based on machine condition',
+          'Support for both scheduled maintenance parts and urgent replacements',
+        ],
+      },
+      {
+        title: 'Breakdown Response & Inspection Work',
+        points: [
+          'Fault isolation and practical corrective action planning',
+          'Safety-focused checks before equipment returns to duty',
+          'Documentation support for maintenance follow-up and planning',
+        ],
+      },
+      {
+        title: 'Equipment Categories Covered',
+        points: ['Reach stackers', 'Forklifts', 'Hydra cranes', 'Hydraulic systems and industrial support equipment'],
+      },
+      {
+        title: 'Before & After Service Outcomes',
+        points: [
+          'From unstable hydraulic response to controlled, reliable operation',
+          'From recurring forklift issues to smoother daily handling cycles',
+          'From unexpected stoppages to planned maintenance confidence',
+        ],
+      },
+      {
+        title: 'Gallery Notes',
+        text:
+          'Each visual represents practical industrial service activity, including inspections, troubleshooting, maintenance execution, and equipment readiness validation for uptime-focused operations.',
+      },
+      {
+        title: 'Need Similar Support for Your Fleet?',
+        text:
+          'Contact Sunrise Heavy Machine Service to discuss your machine condition, service goals, and maintenance priorities. We can help you build a reliable support plan tailored to your operations.',
+      },
+    ],
     links: [{ label: 'About Us', href: '/about-us' }],
     schemaType: 'WebPage',
   },
@@ -212,8 +391,73 @@ const pages: SitePage[] = [
     heroDescription: 'Industry-focused maintenance and repair support for high-demand operations.',
     image: '/images/operations-bg.jpg',
     imageAlt: 'Industries we serve',
-    overview: 'We support diverse industrial sectors with tailored service plans and rapid response.',
-    sections: [{ title: 'Industries', points: ['Ports and Terminals', 'Warehousing and Logistics', 'Manufacturing and Plants'] }],
+    overview:
+      'Sunrise Heavy Machine Service provides industry-specific heavy equipment support for businesses where uptime, safety, and machine reliability directly impact productivity and revenue.',
+    sections: [
+      {
+        title: 'Industries We Support',
+        text:
+          'Our service model is built for sectors that operate forklifts, reach stackers, hydra cranes, and hydraulic systems in high-demand environments. We align maintenance strategy with your operating realities, shift patterns, and service urgency.',
+      },
+      {
+        title: 'Logistics & Warehousing',
+        points: [
+          'Common challenge: High daily forklift utilization causes wear, steering issues, and unexpected downtime.',
+          'Our support: Periodic inspection, preventive maintenance services, and targeted forklift repair services.',
+          'Value delivered: Better handling reliability, safer movement cycles, and reduced operational disruption.',
+        ],
+      },
+      {
+        title: 'Ports & Container Terminals',
+        points: [
+          'Common challenge: Reach stacker downtime can immediately affect container turnaround timelines.',
+          'Our support: Reach stacker maintenance, hydraulic system troubleshooting, and quick breakdown response.',
+          'Value delivered: Improved equipment availability for time-sensitive container operations.',
+        ],
+      },
+      {
+        title: 'Construction & Infrastructure',
+        points: [
+          'Common challenge: Hydra crane and support equipment face heavy load cycles and variable site conditions.',
+          'Our support: Hydra crane maintenance, lifting-system checks, and on-site repair coordination.',
+          'Value delivered: Safer lifting performance and fewer delays in project-critical workflows.',
+        ],
+      },
+      {
+        title: 'Manufacturing Plants',
+        points: [
+          'Common challenge: Equipment stoppage can interrupt production flow and material movement.',
+          'Our support: Preventive maintenance planning, hydraulic diagnostics, and workshop-backed repairs.',
+          'Value delivered: Consistent machine performance and more predictable maintenance windows.',
+        ],
+      },
+      {
+        title: 'Industrial Yards & Fleet Environments',
+        points: [
+          'Common challenge: Mixed equipment fleets require coordinated service and spare parts support.',
+          'Our support: Multi-machine maintenance scheduling, inspection routines, and parts planning assistance.',
+          'Value delivered: Better fleet readiness with reduced repeat faults across equipment categories.',
+        ],
+      },
+      {
+        title: 'Container Handling Operations',
+        points: [
+          'Common challenge: Repetitive heavy-duty cycles increase hydraulic and mechanical stress.',
+          'Our support: Condition-based service interventions, hose and seal management, and performance checks.',
+          'Value delivered: Reliable handling capacity and stronger uptime confidence during peak operations.',
+        ],
+      },
+      {
+        title: 'Why an Industry-Specific Service Approach Matters',
+        text:
+          'Different industries face different equipment risks. Our team does not apply generic maintenance routines; we build practical service priorities based on machine load profile, operating hours, environmental demands, and business continuity requirements.',
+      },
+      {
+        title: 'Build the Right Support Plan',
+        text:
+          'If your operations rely on industrial equipment performance, Sunrise Heavy Machine Service can help you create a maintenance strategy that improves reliability, supports safety, and protects uptime.',
+      },
+    ],
     links: [{ label: 'Contact Us', href: '/contact-us' }],
     schemaType: 'WebPage',
   },
@@ -225,13 +469,100 @@ const pages: SitePage[] = [
     heroDescription: 'Common questions about our services, support model, and maintenance coverage.',
     image: '/images/service-spare-parts.jpg',
     imageAlt: 'FAQ for heavy equipment service and support',
-    overview: 'Find quick answers to frequent service, coverage, and maintenance planning questions.',
-    sections: [{ title: 'Service Questions', points: ['Do you provide on-site support? Yes.', 'Can we request scheduled maintenance plans? Yes, including preventive and AMC options.'] }],
+    overview:
+      'Find practical answers about reach stacker maintenance, forklift repair services, hydra crane support, hydraulic troubleshooting, preventive maintenance, and emergency breakdown assistance.',
+    sections: [
+      {
+        title: 'Service Coverage FAQs',
+        points: [
+          'We support workshop and site-based service requirements depending on machine condition and urgency.',
+          'Our team coordinates maintenance for logistics, ports, industrial yards, manufacturing plants, and warehouses.',
+          'Preventive plans and annual maintenance contracts are available for uptime-focused operations.',
+        ],
+      },
+      {
+        title: 'When to Contact Our Team',
+        points: [
+          'Frequent hydraulic leaks, pressure drops, or overheating symptoms',
+          'Recurring forklift faults affecting shift productivity',
+          'Reach stacker or hydra crane performance instability during operations',
+          'Need for planned inspections before peak workload periods',
+        ],
+      },
+    ],
     links: [{ label: 'Contact Us', href: '/contact-us' }],
     schemaType: 'FAQPage',
     faq: [
-      { question: 'Do you provide on-site support?', answer: 'Yes, on-site support is available based on location and urgency.' },
-      { question: 'Do you offer preventive and AMC plans?', answer: 'Yes, we provide both preventive maintenance and AMC options.' },
+      {
+        question: 'Do you provide reach stacker maintenance services for container handling operations?',
+        answer:
+          'Yes. We provide reach stacker maintenance, inspection support, hydraulic troubleshooting, and breakdown assistance for operations where container movement uptime is critical.',
+      },
+      {
+        question: 'What types of forklift repair services do you handle?',
+        answer:
+          'We support preventive servicing, fault diagnosis, steering and braking checks, hydraulic corrections, and practical repairs based on machine condition and workload demands.',
+      },
+      {
+        question: 'Can Sunrise Heavy Machine Service support hydra crane maintenance?',
+        answer:
+          'Yes. Our hydra crane service includes maintenance checks, hydraulic line and lifting-system inspection, and corrective actions to improve safe operating reliability.',
+      },
+      {
+        question: 'Do you troubleshoot hydraulic system issues on heavy equipment?',
+        answer:
+          'Absolutely. We diagnose hydraulic pressure loss, leakage issues, performance instability, and component wear, then recommend suitable repair or replacement support.',
+      },
+      {
+        question: 'Do you offer preventive maintenance services?',
+        answer:
+          'Yes. Preventive maintenance plans are available to reduce unplanned downtime, extend equipment life, and improve operational predictability for fleets and industrial machines.',
+      },
+      {
+        question: 'Is emergency equipment breakdown support available?',
+        answer:
+          'Yes. We provide urgent breakdown response support and prioritize equipment that directly affects active logistics, yard, or production operations.',
+      },
+      {
+        question: 'Can you help with spare parts availability and replacement planning?',
+        answer:
+          'Yes. We assist with heavy equipment spare parts coordination, including service-critical components required for maintenance and urgent corrective work.',
+      },
+      {
+        question: 'Which locations and industries do you typically serve?',
+        answer:
+          'We support clients in India across logistics hubs, warehouses, ports, terminals, industrial yards, and manufacturing environments, depending on service scope and scheduling.',
+      },
+      {
+        question: 'Do you provide both workshop and on-site service support?',
+        answer:
+          'Yes. We offer workshop-based maintenance and field service support. The mode is chosen based on fault complexity, safety, and turnaround requirements.',
+      },
+      {
+        question: 'How quickly can your team respond to service requests?',
+        answer:
+          'Response time depends on machine location, issue severity, and current service load, but urgent breakdown cases are prioritized for the earliest practical attendance.',
+      },
+      {
+        question: 'Are annual maintenance contracts (AMC) available for industrial equipment?',
+        answer:
+          'Yes. Our AMC services include scheduled inspections, planned maintenance routines, and structured support to improve uptime and reduce recurring failures.',
+      },
+      {
+        question: 'How often should heavy equipment be inspected and serviced?',
+        answer:
+          'Service frequency should align with machine usage intensity, operating environment, and OEM guidance. We help clients define practical schedules for each equipment category.',
+      },
+      {
+        question: 'What are common signs that equipment needs immediate service?',
+        answer:
+          'Warning signs include unusual noise, hydraulic leakage, overheating, reduced lifting performance, delayed response, frequent alarms, and repeated stoppages during operation.',
+      },
+      {
+        question: 'How does your service approach improve uptime and safety?',
+        answer:
+          'We focus on preventive maintenance, accurate diagnosis, quality service execution, and safety-conscious checks so equipment returns to operation with better reliability.',
+      },
     ],
   },
 ];
