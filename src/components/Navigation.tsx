@@ -4,10 +4,33 @@ import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { WhatsAppPreForm } from './WhatsAppPreForm';
 
+
+const primaryLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about-us' },
+  { label: 'Industries', href: '/industries-we-serve' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact-us' },
+];
+
+const serviceLinks = [
+  { label: 'Reach Stacker Maintenance', href: '/reach-stacker-maintenance' },
+  { label: 'Forklift Repair', href: '/forklift-repair' },
+  { label: 'Hydra Crane Service', href: '/hydra-crane-service' },
+  { label: 'Hydraulic System Repair', href: '/hydraulic-system-repair' },
+  { label: 'Spare Parts', href: '/spare-parts' },
+  { label: 'AMC Services', href: '/amc-services' },
+  { label: 'Breakdown Support', href: '/breakdown-support' },
+  { label: 'Preventive Maintenance', href: '/preventive-maintenance' },
+  { label: 'Industrial Equipment Maintenance', href: '/industrial-equipment-maintenance' },
+  { label: 'Container Handling Equipment', href: '/container-handling-equipment' },
+
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Clients', href: '#clients' },
   { label: 'Contact', href: '#contact' },
+
 ];
 
 const serviceLinks = [
@@ -29,10 +52,7 @@ export function Navigation() {
   const servicesMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -67,6 +87,7 @@ export function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
+
   return (
     <>
       <motion.header
@@ -74,22 +95,12 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'glass border-b border-white/5'
-            : 'bg-transparent'
+          isScrolled ? 'glass border-b border-white/5' : 'bg-transparent'
         }`}
       >
         <div className="container-padding">
           <nav className="flex items-center justify-between h-20 md:h-24">
-            {/* Logo - Fixed visibility */}
-            <a
-              href="#"
-              className="flex items-center gap-2 group"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
+            <a href="/" className="flex items-center gap-2 group">
               <div className="relative h-14 md:h-16 w-auto">
                 <img
                   src="/images/logo-transparent.png"
@@ -100,8 +111,13 @@ export function Navigation() {
               </div>
             </a>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
+
+              <a href="/" className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-300 relative group">
+                Home
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-full transition-all duration-300" />
+              </a>
+
               <div
                 ref={servicesMenuRef}
                 className="relative"
@@ -146,18 +162,56 @@ export function Navigation() {
               </div>
 
               {navItems.map((item) => (
+
                 <button
+                  onClick={() => setIsServicesOpen((prev) => !prev)}
+                  aria-haspopup="menu"
+                  aria-expanded={isServicesOpen}
+                  className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-300 relative group inline-flex items-center gap-1"
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-full transition-all duration-300" />
+                </button>
+
+                <AnimatePresence>
+                  {isServicesOpen && (
+                    <motion.div
+                      role="menu"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-3 w-80 rounded-xl glass border border-white/10 shadow-2xl p-2"
+                    >
+                      {serviceLinks.map((service) => (
+                        <a
+                          key={service.href}
+                          href={service.href}
+                          role="menuitem"
+                          className="block px-4 py-2.5 rounded-lg text-sm text-white/80 hover:text-white hover:bg-amber-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 transition-colors"
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          {service.label}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {primaryLinks.slice(1).map((item) => (
+                <a
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
+                  href={item.href}
                   className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-300 relative group"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-full transition-all duration-300" />
-                </button>
+                </a>
               ))}
             </div>
 
-            {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
               <button
                 onClick={() => setIsWhatsAppFormOpen(true)}
@@ -173,30 +227,23 @@ export function Navigation() {
                 <Phone className="w-4 h-4" />
                 <span className="text-sm">{CONTACT_PHONE}</span>
               </a>
-              <Button
-                onClick={() => scrollToSection('#contact')}
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-6 shadow-glow hover:shadow-glow-lg transition-all duration-300"
-              >
-                Request a Quote
-              </Button>
+              <a href="/contact-us">
+                <Button className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-6 shadow-glow hover:shadow-glow-lg transition-all duration-300">
+                  Request a Quote
+                </Button>
+              </a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </nav>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -206,10 +253,7 @@ export function Navigation() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 md:hidden"
           >
-            <div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -218,12 +262,17 @@ export function Navigation() {
               className="absolute right-0 top-0 h-full w-72 glass border-l border-white/10 p-6 pt-28"
             >
               <div className="flex flex-col gap-4">
+
+                <a href="/" className="text-left text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/10 transition-colors">Home</a>
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 }} className="border-b border-white/10 pb-2">
+
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 }}
                   className="border-b border-white/10 pb-2"
                 >
+
                   <button
                     onClick={() => setIsMobileServicesOpen((prev) => !prev)}
                     aria-haspopup="menu"
@@ -235,6 +284,12 @@ export function Navigation() {
                   </button>
                   <AnimatePresence>
                     {isMobileServicesOpen && (
+
+                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
+                        <div className="pl-2 pb-2 flex flex-col">
+                          {serviceLinks.map((service) => (
+                            <a key={service.href} href={service.href} role="menuitem" onClick={() => setIsMobileMenuOpen(false)} className="text-white/70 hover:text-amber-400 text-sm py-2 transition-colors">
+
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
@@ -251,6 +306,7 @@ export function Navigation() {
                               onClick={() => setIsMobileMenuOpen(false)}
                               className="text-white/70 hover:text-amber-400 text-sm py-2 transition-colors"
                             >
+
                               {service.label}
                             </a>
                           ))}
@@ -260,20 +316,32 @@ export function Navigation() {
                   </AnimatePresence>
                 </motion.div>
 
+
+                {primaryLinks.slice(1).map((item, index) => (
+                  <motion.a
+
                 {navItems.map((item, index) => (
                   <motion.button
+
                     key={item.label}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 + 0.1 }}
+
+                    href={item.href}
+
                     onClick={() => scrollToSection(item.href)}
+
                     className="text-left text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/10 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
-                  </motion.button>
+                  </motion.a>
                 ))}
 
+
                 {/* WhatsApp Button Mobile */}
+
                 <motion.button
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -288,6 +356,12 @@ export function Navigation() {
                   Chat on WhatsApp
                 </motion.button>
 
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} className="pt-4">
+                  <a href="/contact-us">
+                    <Button className="w-full bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium py-6">
+                      Request a Quote
+                    </Button>
+                  </a>
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -300,6 +374,7 @@ export function Navigation() {
                   >
                     Request a Quote
                   </Button>
+
                 </motion.div>
               </div>
             </motion.div>
@@ -307,7 +382,6 @@ export function Navigation() {
         )}
       </AnimatePresence>
 
-      {/* Floating WhatsApp Button */}
       <motion.button
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -322,11 +396,7 @@ export function Navigation() {
         </span>
       </motion.button>
 
-      {/* WhatsApp Pre-Form Modal */}
-      <WhatsAppPreForm
-        isOpen={isWhatsAppFormOpen}
-        onClose={() => setIsWhatsAppFormOpen(false)}
-      />
+      <WhatsAppPreForm isOpen={isWhatsAppFormOpen} onClose={() => setIsWhatsAppFormOpen(false)} />
     </>
   );
 }
