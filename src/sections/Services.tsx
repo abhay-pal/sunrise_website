@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ArrowRight, Container, Forklift, Construction, Droplets, Package, FileCheck, MessageCircle, ChevronDown, CheckCircle, Phone, Mail } from 'lucide-react';
 import { useState } from 'react';
+import { useWhatsAppModal } from '@/components/WhatsAppModalProvider';
 import { Button } from '@/components/ui/button';
-import { WhatsAppPreForm } from '@/components/WhatsAppPreForm';
 import { ServiceDetailModal } from '@/components/ServiceDetailModal';
 
 const services = [
@@ -190,14 +190,13 @@ const serviceCategories = [
 export function Services() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
-  const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<string>('');
   const [detailModalOpen, setDetailModalOpen] = useState(false);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState<typeof services[0] | null>(null);
 
+  const { openWhatsAppModal } = useWhatsAppModal();
+
   const openWhatsAppForm = (serviceName: string = '') => {
-    setSelectedService(serviceName);
-    setIsWhatsAppFormOpen(true);
+    openWhatsAppModal(serviceName);
   };
 
   const openServiceDetail = (service: typeof services[0]) => {
@@ -443,12 +442,12 @@ export function Services() {
                                 size="sm"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                                  openWhatsAppForm(category.category);
                                 }}
                                 className="border-white/20 text-white hover:bg-white/10"
                               >
                                 <Mail className="w-4 h-4 mr-2" />
-                                Request Quote
+                                Request a Quote
                               </Button>
                               <Button
                                 variant="outline"
@@ -507,12 +506,6 @@ export function Services() {
         </div>
       </div>
 
-      {/* WhatsApp Pre-Form Modal */}
-      <WhatsAppPreForm
-        isOpen={isWhatsAppFormOpen}
-        onClose={() => setIsWhatsAppFormOpen(false)}
-        defaultService={selectedService}
-      />
 
       {/* Service Detail Modal */}
       <ServiceDetailModal

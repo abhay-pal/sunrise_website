@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/sections/Footer';
+import { useWhatsAppModal } from '@/components/WhatsAppModalProvider';
 
 type Section = {
   title: string;
@@ -609,6 +610,7 @@ function setSchema(page: SitePage) {
 }
 
 function SitePageView({ page }: { page: SitePage }) {
+  const { openWhatsAppModal } = useWhatsAppModal();
   useEffect(() => {
     document.title = page.metaTitle;
     setMeta('description', page.metaDescription);
@@ -633,11 +635,12 @@ function SitePageView({ page }: { page: SitePage }) {
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight mb-5">{page.title}</h1>
               <p className="text-lg text-white/70 leading-relaxed mb-8">{page.heroDescription}</p>
-              <a href="/contact-us">
-                <Button className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-8 py-6 text-lg shadow-glow">
-                  Request a Quote
-                </Button>
-              </a>
+              <Button
+                onClick={() => openWhatsAppModal(page.title)}
+                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-8 py-6 text-lg shadow-glow"
+              >
+                Request a Quote
+              </Button>
             </div>
             <div className="glass rounded-2xl p-8 border border-white/10">
               <img src={page.image} alt={page.imageAlt} className="w-full h-auto max-h-80 object-contain" loading="lazy" />

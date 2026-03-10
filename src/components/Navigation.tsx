@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { useWhatsAppModal } from '@/components/WhatsAppModalProvider';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { WhatsAppPreForm } from './WhatsAppPreForm';
 
 const primaryLinks = [
   { label: 'Home', href: '/' },
@@ -33,8 +33,8 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
   const servicesMenuRef = useRef<HTMLDivElement>(null);
+  const { openWhatsAppModal } = useWhatsAppModal();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -140,7 +140,7 @@ export function Navigation() {
 
             <div className="hidden md:flex items-center gap-3">
               <button
-                onClick={() => setIsWhatsAppFormOpen(true)}
+                onClick={() => openWhatsAppModal()}
                 className="w-10 h-10 rounded-full bg-green-500 hover:bg-green-400 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
                 title="Chat on WhatsApp"
               >
@@ -150,11 +150,10 @@ export function Navigation() {
                 <Phone className="w-4 h-4" />
                 <span className="text-sm">{CONTACT_PHONE}</span>
               </a>
-              <a href="/contact-us">
-                <Button className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-6">
+              <Button
+                onClick={() => openWhatsAppModal()} className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-medium px-6">
                   Request a Quote
                 </Button>
-              </a>
             </div>
 
             <button onClick={() => setIsMobileMenuOpen((prev) => !prev)} className="md:hidden p-2 text-white/70 hover:text-white transition-colors">
@@ -205,7 +204,7 @@ export function Navigation() {
                   </AnimatePresence>
                 </div>
 
-                <button onClick={() => { setIsWhatsAppFormOpen(true); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-green-400 hover:text-green-300 text-lg font-medium py-2 border-b border-white/10">
+                <button onClick={() => { openWhatsAppModal(); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-green-400 hover:text-green-300 text-lg font-medium py-2 border-b border-white/10">
                   <MessageCircle className="w-5 h-5" /> Chat on WhatsApp
                 </button>
               </div>
@@ -218,14 +217,13 @@ export function Navigation() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: 'spring' }}
-        onClick={() => setIsWhatsAppFormOpen(true)}
+        onClick={() => openWhatsAppModal()}
         className="fixed bottom-24 right-6 z-40 w-14 h-14 rounded-full bg-green-500 hover:bg-green-400 text-white shadow-lg flex items-center justify-center"
         title="Chat on WhatsApp"
       >
         <MessageCircle className="w-7 h-7" />
       </motion.button>
 
-      <WhatsAppPreForm isOpen={isWhatsAppFormOpen} onClose={() => setIsWhatsAppFormOpen(false)} />
     </>
   );
 }
