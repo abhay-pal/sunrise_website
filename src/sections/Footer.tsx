@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Facebook, Linkedin, Twitter, Instagram, ArrowUp, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
-import { useState } from 'react';
-import { WhatsAppPreForm } from '@/components/WhatsAppPreForm';
+import { useWhatsAppModal } from '@/components/WhatsAppModalProvider';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
@@ -32,7 +31,7 @@ const CONTACT_EMAIL = 'Sunrise7480@rediffmail.com';
 const CONTACT_PHONE = '+91 97179 00209';
 
 export function Footer() {
-  const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
+  const { openWhatsAppModal } = useWhatsAppModal();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -129,7 +128,7 @@ export function Footer() {
               </div>
 
               <button
-                onClick={() => setIsWhatsAppFormOpen(true)}
+                onClick={() => openWhatsAppModal()}
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-green-500 hover:bg-green-400 text-white font-medium transition-all duration-300 hover:scale-105"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -165,7 +164,6 @@ export function Footer() {
         <ArrowUp className="w-5 h-5" />
       </motion.button>
 
-      <WhatsAppPreForm isOpen={isWhatsAppFormOpen} onClose={() => setIsWhatsAppFormOpen(false)} />
     </footer>
   );
 }

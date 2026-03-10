@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
-import { WhatsAppPreForm } from '@/components/WhatsAppPreForm';
+import { useWhatsAppModal } from '@/components/WhatsAppModalProvider';
 
 const CONTACT_PHONE = '+91 97179 00209';
 
@@ -59,7 +58,7 @@ function RotatingGear({ className, size = 80 }: { className?: string, size?: num
 }
 
 export function Hero() {
-  const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
+  const { openWhatsAppModal } = useWhatsAppModal();
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -197,7 +196,7 @@ export function Hero() {
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
-              onClick={() => setIsWhatsAppFormOpen(true)}
+              onClick={() => openWhatsAppModal()}
               size="lg"
               className="group bg-green-500 hover:bg-green-400 text-white font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
             >
@@ -274,11 +273,6 @@ export function Hero() {
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
 
-      {/* WhatsApp Pre-Form Modal */}
-      <WhatsAppPreForm
-        isOpen={isWhatsAppFormOpen}
-        onClose={() => setIsWhatsAppFormOpen(false)}
-      />
     </section>
   );
 }

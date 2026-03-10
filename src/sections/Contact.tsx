@@ -9,11 +9,11 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { WhatsAppPreForm } from '@/components/WhatsAppPreForm';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
 import { AlertCircle, Building, CheckCircle, Clock, FileText, Loader2, Mail, MapPin, MessageCircle, Phone, Send, User, Wrench } from 'lucide-react';
 import { useState } from 'react';
+import { useWhatsAppModal } from '@/components/WhatsAppModalProvider';
 
 const equipmentTypes = [
   { value: 'reach-stacker', label: 'Reach Stacker' },
@@ -35,7 +35,6 @@ export function Contact() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
   
   const [formData, setFormData] = useState({
     name: '',
@@ -46,6 +45,7 @@ export function Contact() {
     message: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { openWhatsAppModal } = useWhatsAppModal();
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -208,7 +208,7 @@ export function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 }}
-                  onClick={() => setIsWhatsAppFormOpen(true)}
+                  onClick={() => openWhatsAppModal()}
                   className="w-full flex items-center gap-4 p-4 rounded-xl bg-green-500/10 border border-green-500/30 hover:bg-green-500/20 hover:border-green-500/50 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-lg bg-green-500 flex items-center justify-center flex-shrink-0">
@@ -440,14 +440,14 @@ export function Contact() {
                       ) : (
                         <>
                           <Send className="mr-2 w-5 h-5" />
-                          Request a Quote
+                          Send Request
                         </>
                       )}
                     </Button>
                     
                     <Button
                       type="button"
-                      onClick={() => setIsWhatsAppFormOpen(true)}
+                      onClick={() => openWhatsAppModal()}
                       size="lg"
                       variant="outline"
                       className="flex-1 border-green-500/50 text-green-400 hover:bg-green-500/10 hover:text-green-300 py-6"
@@ -463,11 +463,6 @@ export function Contact() {
         </div>
       </div>
 
-      {/* WhatsApp Pre-Form Modal */}
-      <WhatsAppPreForm
-        isOpen={isWhatsAppFormOpen}
-        onClose={() => setIsWhatsAppFormOpen(false)}
-      />
     </section>
   );
 }
