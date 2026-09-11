@@ -68,7 +68,7 @@ function createTransporter() {
     return null;
   }
   
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host,
     port,
     secure: port === 465,
@@ -210,7 +210,7 @@ app.get('/api/health', (req, res) => {
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle client-side routing - serve index.html for all non-API routes
-app.get('*', (req, res) => {
+app.get('/{*splat}', (req, res) => {
   if (!req.path.startsWith('/api/')) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   }
